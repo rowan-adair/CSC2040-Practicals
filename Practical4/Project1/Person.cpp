@@ -31,11 +31,11 @@ bool Person::operator!=(const Person& per) const {
 }
 
 bool Person::operator<=(const Person& per) const {
-	return per.ID_number <= ID_number;
+	return stoi(ID_number) <= stoi(per.ID_number);
 }
 
 bool Person::operator>=(const Person& per) const {
-	return stoi(per.ID_number) >= stoi(ID_number);
+	return stoi(ID_number) >= stoi(per.ID_number);
 }
 
 // A friend function of the Person class, which can access the class's private data members
