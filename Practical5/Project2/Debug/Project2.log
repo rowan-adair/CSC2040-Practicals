@@ -1,0 +1,5 @@
+﻿  Project2.cpp
+Project2.obj : error LNK2019: unresolved external symbol "public: __thiscall s_array<int>::s_array<int>(int)" (??0?$s_array@H@@QAE@H@Z) referenced in function _main
+Project2.obj : error LNK2019: unresolved external symbol "public: __thiscall s_array<int>::~s_array<int>(void)" (??1?$s_array@H@@QAE@XZ) referenced in function _main
+Project2.obj : error LNK2019: unresolved external symbol "public: int & __thiscall s_array<int>::operator[](int)" (??A?$s_array@H@@QAEAAHH@Z) referenced in function _main
+C:\Users\rjada\OneDrive\Documents\Practicals\cpp_practicals\Practical5\Debug\Project2.exe : fatal error LNK1120: 3 unresolved externals
