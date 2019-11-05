@@ -12,20 +12,7 @@ void printSet(set<int> iset) {
 	}
 	cout << endl;
 }
-
-int main() {
-
-	set<int> iset;
-	iset.insert(5);
-	iset.insert(9);
-	iset.insert(1);
-	iset.insert(8);
-	iset.insert(3);
-	
-	cout << "iset contains:";
-
-	printSet(iset);
-
+void userSearchSet(set<int> iset) {
 	int searchFor;
 	cout << "Enter a number to search for :";
 	cin >> searchFor;
@@ -36,6 +23,21 @@ int main() {
 	else {
 		cout << "Did not find " << searchFor << endl;
 	}
+}
+
+int main() {
+
+	set<int> iset;
+	iset.insert(5);
+	iset.insert(9);
+	iset.insert(1);
+	iset.insert(8);
+	iset.insert(3);
+	cout << "iset contains:";
+	printSet(iset);
+
+	userSearchSet(iset);
+
 	int newVal = 0;
 	cout << "Enter a new integer value:";
 	cin >> newVal;
