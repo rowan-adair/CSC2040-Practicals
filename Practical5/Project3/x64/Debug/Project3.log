@@ -1,3 +1,1 @@
-﻿  Project3.cpp
-C:\Users\rjada\OneDrive\Documents\Practicals\cpp_practicals\Practical5\Project3\Project3.cpp(41,16): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
-  Project3.vcxproj -> C:\Users\rjada\OneDrive\Documents\Practicals\cpp_practicals\Practical5\x64\Debug\Project3.exe
+﻿  Project3.vcxproj -> C:\Users\rjada\Documents\cpp_practicals\Practical5\x64\Debug\Project3.exe

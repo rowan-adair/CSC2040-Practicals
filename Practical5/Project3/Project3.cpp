@@ -4,6 +4,8 @@
 
 using namespace std;
 
+
+
 void printSet(set<int> iset) {
 	set<int>::iterator it;
 	for (it = iset.begin(); it != iset.end(); it++)
@@ -30,7 +32,8 @@ set<int> userInsert(set<int> iset) {
 	cout << "Enter a new integer value:";
 	cin >> newVal;
 	iset.insert(newVal);
-	cout << "New set : " << printSet(iset);
+	cout << "New set : ";
+	printSet(iset);
 	return iset;
 }
 
