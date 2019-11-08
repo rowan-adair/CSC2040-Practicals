@@ -15,9 +15,6 @@ AClass::AClass(int len, double val):length(len){
 	}
 }
 
-
-
-
 AClass::AClass(const AClass& x)
 {
 	length = x.length;
