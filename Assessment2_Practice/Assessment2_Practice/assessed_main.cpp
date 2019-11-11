@@ -2,6 +2,7 @@
 #include "uConvert.h"
 #include <iostream>
 #include <string>
+#include "assessed_main.h"
 
 using namespace std;
 
@@ -18,10 +19,10 @@ T search_r(T* array, int array_len, T key) {
 	return T();
 }
 
-int main1() {
+int main() {
 	xArray array(3);
 	array.character[0] = 'a';
-	array.character[1] = '=';
+	array.character[1] = '2';
 	array.character[2] = '%';
 	if (array.size > 0)
 	{
@@ -31,7 +32,7 @@ int main1() {
 			array.ascii[i] = array2.character[i];
 		}
 	}
-	cout << array.ascii[2] << endl;
+	cout << array.ascii[1] << endl;
 	return 0;
 }
 
@@ -66,14 +67,16 @@ int main3() {
 	return 0;
 }
 
-int main() {
+
+int main4() {
 	// a base class pointer
 	uConvert* base_ptr = 0;
 	// menu to take input from the users
 	cout << "\nEnter 1 for litre to gallon conversion\n"
 		<< "Enter 2 for Fahrenheit to Celsius conversion\n"
 		<< "Enter 3 for feet to meter conversion\n"
-		<< "Enter 4 for degree to radian conversion\n";
+		<< "Enter 4 for degree to radian conversion\n"
+		<< "Enter 5 for radian to degree conversion\n";
 	int option;
 	cin >> option;
 	// pointing base_ptr to the derived object of the user's choice
@@ -90,6 +93,9 @@ int main() {
 	case 4:
 		base_ptr = new d2r;
 		break;
+	case 5:
+		base_ptr = new r2d;
+		break;
 	default:
 		return 0;
 	}
@@ -98,5 +104,11 @@ int main() {
 	base_ptr->convert();
 	base_ptr->print();
 	delete base_ptr;
-	return 0;
+	char choice = ' ';
+	cout << "Do you want to use the converter? (y/n)" << endl;
+	cin >> choice;
+	if (choice == 'y')
+		main();
+	else
+		return 0;
 }

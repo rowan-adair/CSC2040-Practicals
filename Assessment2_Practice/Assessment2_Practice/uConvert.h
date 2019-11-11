@@ -60,5 +60,16 @@ class d2r : public uConvert
 	void print() { cout << "= " << out_value << " radians" << endl << endl; }
 	
 };
+class r2d : public uConvert
+{
+	const double pi = 3.14159265358979323846;
+	void read_unit() {
+		cout << "Enter the radians: ";
+		cin >> in_value;
+	}
+	void convert() { out_value = in_value * (180 / pi); }
+	void print() { cout << "= " << out_value << " degrees" << endl << endl; }
+
+};
 
 #endif

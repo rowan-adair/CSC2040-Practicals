@@ -15,27 +15,20 @@ AClass::AClass(int len, double val):length(len){
 	}
 }
 
-AClass::AClass(const AClass& x)
+AClass::AClass(const AClass& arr)
 {
-	length = x.length;
+	length = arr.length;
 	data = new double[length];
 	for (int i = 0; i < length; i++)
-	{
-		data[i] = x.data[i];
-	}
+		data[i] = arr.data[i];
 }
 
 void AClass::operator+=(const AClass& b) {
 	int len = (length < b.length) ? length : b.length;
-
 	for (int i = 0; i < len; i++)
-	{
 		data[i] += b.data[i];
-	}
 	for (int i = 0; i < length; i++)
-	{
 		cout << data[i] << endl;
-	}
 	cout << endl;
 
 }

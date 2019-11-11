@@ -127,7 +127,7 @@
     <ClCompile Include="xArray.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="search_r.h" />
+    <ClInclude Include="assessed_main.h" />
     <ClInclude Include="uConvert.h" />
     <ClInclude Include="xArray.h" />
   </ItemGroup>

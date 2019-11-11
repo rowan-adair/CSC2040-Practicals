@@ -10,5 +10,8 @@ int main()
 
 	AClass z(20, 1);
 	z += y;
+
+
+
 	return 0;
 }

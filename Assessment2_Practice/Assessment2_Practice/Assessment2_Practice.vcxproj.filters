@@ -26,10 +26,10 @@
     <ClInclude Include="xArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="search_r.h">
+    <ClInclude Include="uConvert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="uConvert.h">
+    <ClInclude Include="assessed_main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
