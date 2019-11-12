@@ -127,7 +127,6 @@
     <ClCompile Include="xArray.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="assessed_main.h" />
     <ClInclude Include="uConvert.h" />
     <ClInclude Include="xArray.h" />
   </ItemGroup>

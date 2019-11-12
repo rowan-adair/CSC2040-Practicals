@@ -29,8 +29,5 @@
     <ClInclude Include="uConvert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="assessed_main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

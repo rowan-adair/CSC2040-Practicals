@@ -1,1 +1,4 @@
-﻿
+﻿  Project3.cpp
+C:\Users\rjada\Documents\Practicals\cpp_practicals\Assessment1_Repeat\Project3\Project3.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\rjada\Documents\Practicals\cpp_practicals\Assessment1_Repeat\Project3\Project3.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Project3.vcxproj -> C:\Users\rjada\Documents\Practicals\cpp_practicals\Assessment1_Repeat\Debug\Project3.exe

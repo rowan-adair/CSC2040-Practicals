@@ -26,19 +26,18 @@ int find_max(T* array, int &array_len) {
 
 template <typename T>
 T _find_max(T* array, int& array_len) {
-	if (!array || array_len < 0) {
-		cout << "This array is invalid" << endl;
-		return 0;
-	}
-	int max_index = -1;
-	T max_val = T();
+	if (!array || array_len < 0) 
+		return NULL;
+	int max_index = 0;
+	T max_val = array[max_index];
 	for (size_t i = 0; i < array_len; i++)
 	{
-		if (array[i] > max_val) {
+		if (array[i] >= max_val) {
 			max_val = array[i];
+			max_index = i;
 		}
 	}
-	return max_val;
+	return array[max_index];
 }
 
 #endif // !FIND_MAX_H

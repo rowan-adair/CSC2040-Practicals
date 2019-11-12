@@ -35,8 +35,6 @@ s_array<T>::~s_array()
 	delete[] data;
 }
 
-
-
 template<typename T>
 T& s_array<T>::operator[](int i)
 {
@@ -47,8 +45,6 @@ T& s_array<T>::operator[](int i)
 	}
 	return data[i];
 }
-
-
 
 #endif // !S_ARRAY_H
 
