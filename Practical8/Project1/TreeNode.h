@@ -20,6 +20,8 @@ public:
 	TreeNode<T> *insert(TreeNode<T>* tree, T item);
 	void traverse();
 
+	bool searchTree(T key);
+
 private:
 	// The three things held in a TreeNode
 	T item;
@@ -67,6 +69,21 @@ void TreeNode<T>::traverse()
 	cout << item << endl;
 	if (right != 0)
 		right->traverse();
+}
+
+template <typename T>
+bool TreeNode<T>::searchTree(T key) 
+{
+	if (item == key) {
+		return true;
+	}
+	if (left != NULL) {
+		return left->searchTree(key);
+	}
+	if (right != NULL) {
+		return right->searchTree(key);
+	}
+	return false;
 }
 
 #endif
