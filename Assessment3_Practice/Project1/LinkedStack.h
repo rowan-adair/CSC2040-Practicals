@@ -93,20 +93,13 @@ int LinkedStack<T>::size()
 template <typename T>
 int LinkedStack<T>::countStack(T item) {
 	int counter = 0;
-	int static_len = stackSize;
-	T* list = new T[static_len];
-	for (int i = 0; i < static_len; i++) {
-		T* pointer = pop();
-		temp_item;
-		if (temp_item == item) counter++;
-		list[i] = temp_item;
-	}
-
-	for (int i = static_len - 1; i >= 0; i--)
+	StackNode<T>* p = tos;
+	if (p == NULL) return count;
+	while (p != NULL)
 	{
-		push(list[i]);
+		if (p->item == item) count++;
+		p = p->next;
 	}
-
 	return counter;
 }
 
