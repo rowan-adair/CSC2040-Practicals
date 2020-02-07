@@ -1,11 +1,8 @@
 #include <iostream>
 #include <ctime>
 #include <time.h>
-#include <windows.h>
-
 
 using namespace std;
-
 
 void printArray(int* a, int N) {
 	for (int i = 0; i < N; i++) cout << " " << a[i];
@@ -19,7 +16,6 @@ void insertionSort(int* a, int N) {
 
 	for (size_t i = 0; i < N; i++)
 	{
-		Sleep(1);
 		check = a[i];
 		j = i - 1;
 		while (j >= 0 && a[j] > check)
@@ -62,17 +58,45 @@ a --> Array to be sorted,
 first--> Starting index,
 last --> Ending index */
 void quickSort(int *a, int first, int last) {
-	//clock_t begin = clock();
 	if (first < last) {
 		int partitioning_index = partition(a, first, last);
 		quickSort(a, first, partitioning_index - 1);
 		quickSort(a, partitioning_index + 1, last);
 	}
-	/*clock_t end = clock();
-	double elapsed = double(end - begin);
-	cout << "Time taken with N = " << last << " is " << elapsed << "ms = " << elapsed / 1000.0 << " s" << endl;*/
 }
 
+
+void bubbleSort(int *a, int N) {
+
+
+	clock_t begin = clock();
+
+
+	for (int i = 0; i < N - 1; i++) {
+		for (int j = 0; j < N - i - 1; j++) {
+			if (a[j] > a[j + 1]) swap(a[j], a[j + 1]);
+		}
+	}
+	clock_t end = clock();
+	double elapsed = double(end - begin);
+	cout << "Time taken with N = " << N << " is " << elapsed << "ms = " << elapsed / 1000.0 << " s" << endl;
+}
+
+// To generate permuatation of the array 
+void shuffle(int a[], int n)
+{
+	for (int i = 0; i < n; i++)
+		swap(a[i], a[rand() % n]);
+}
+
+// Sorts array a[0..n-1] using Bogo sort 
+void bogosort(int *a, int n)
+{
+	// if array is not sorted then shuffle 
+	// the array again 
+	while (!isSorted(a, n))
+		shuffle(a, n);
+}
 
 bool isSorted(int* a, int N) {
 	for (size_t i = 1; i < N; i++)
