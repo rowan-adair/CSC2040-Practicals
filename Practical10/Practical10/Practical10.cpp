@@ -118,7 +118,18 @@ bool isSortedDescending(T* a, int N){
 
 }
 
-int binarySearhc(int* a, int l, int r, int x) {
+void selectionSort(int* a, int N) {
+	for (int i = 0; i < N - 1; i++)
+	{
+		int min = i;
+		for (int j = 0; j < N; j++)
+			if (a[j] < a[min])
+				min = j;
+			swap(a[min], a[i]);
+	}
+}
+
+int binarySearch(int* a, int l, int r, int x) {
 	while (l <=  r) {
 		int m = l - (l - r) / 2;
 		if (a[m] == x) 
