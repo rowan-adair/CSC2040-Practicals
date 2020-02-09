@@ -1,4 +1,4 @@
 ﻿  Practical10.cpp
-C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\Practical10\Practical10\Practical10.cpp(20,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\Practical10\Practical10\Practical10.cpp(78,23): warning C4018: '<': signed/unsigned mismatch
-  Practical10.vcxproj -> C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\Practical10\Debug\Practical10.exe
+C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\Practical10\Practical10\Practical10.cpp(17,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\Practical10\Practical10\Practical10.cpp(93,10): error C3861: 'isSorted': identifier not found
+C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\Practical10\Practical10\Practical10.cpp(98,23): warning C4018: '<': signed/unsigned mismatch

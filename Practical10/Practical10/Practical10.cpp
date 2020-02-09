@@ -65,13 +65,9 @@ void quickSort(int *a, int first, int last) {
 	}
 }
 
-
-void bubbleSort(int *a, int N) {
-
-
+template <typename T>
+void bubbleSort(T *a, int N) {
 	clock_t begin = clock();
-
-
 	for (int i = 0; i < N - 1; i++) {
 		for (int j = 0; j < N - i - 1; j++) {
 			if (a[j] > a[j + 1]) swap(a[j], a[j + 1]);
@@ -79,7 +75,16 @@ void bubbleSort(int *a, int N) {
 	}
 	clock_t end = clock();
 	double elapsed = double(end - begin);
-	cout << "Time taken with N = " << N << " is " << elapsed << "ms = " << elapsed / 1000.0 << " s" << endl;
+	cout 
+		<< "Time taken with N = " 
+		<< N 
+		<< " is " 
+		<< elapsed 
+		<< "ms = " 
+		<< elapsed / 1000.0 
+		<< " s" 
+		<< 
+		endl;
 }
 
 // To generate permuatation of the array 
@@ -94,16 +99,36 @@ void bogosort(int *a, int n)
 {
 	// if array is not sorted then shuffle 
 	// the array again 
-	while (!isSorted(a, n))
+	while (!isSortedAscending(a, n))
 		shuffle(a, n);
 }
 
-bool isSorted(int* a, int N) {
+template <typename T> 
+bool isSortedAscending(T* a, int N) {
 	for (size_t i = 1; i < N; i++)
-	{
 		if (a[i - 1] > a[i]) return false;
-	}
 	return true;
+}
+
+template <typename T>
+bool isSortedDescending(T* a, int N){
+	for (size_t i = 1; i < N; i++)
+		if (a[i - 1] < a[i]) return false;
+	return true;
+
+}
+
+int binarySearhc(int* a, int l, int r, int x) {
+	while (l <=  r) {
+		int m = l - (l - r) / 2;
+		if (a[m] == x) 
+			return m;
+		if (a[m] <= x) 
+			l = m + 1;
+		else 
+			r = m - 1;
+	}
+	return -1;
 }
 
 int main() {
@@ -116,7 +141,7 @@ int main() {
 
 	printArray(arr_unsorted, 4);
 	cout << endl;
-	if (isSorted(arr_unsorted, 4))
+	if (isSortedAscending(arr_unsorted, 4))
 		cout << "Sorted" << endl;
 	else
 		cout << "Unsorted" << endl;
