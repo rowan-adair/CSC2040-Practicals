@@ -55,17 +55,34 @@ void bubbleSortFlags(int* a, int N) {
 	}
 }
 
+int binarySearch(int *a, int left, int right, int value)
+{
+	if (right >= left) {
+		int mid = left + (right - left) / 2;
+		// If the element is present at the middle 
+		// itself 
+		if (a[mid] == value)
+			return mid;
+		// If element is smaller than mid, then 
+		// it can only be present in left subarray 
+		if (a[mid] > value)
+			return binarySearch(a, left, mid - 1, value);
+		// Else the element can only be present 
+		// in right subarray 
+		return binarySearch(a, mid + 1, right, value);
+	}
+	// We reach here when element is not 
+	// present in array 
+	return -1;
+}
+
+
 int main1() {
 	int N = 100;
 	int* array_1 = createRandomArray(N);
 	int* array_2 = createRandomArray(N);
 	int* array_3 = createRandomArray(N);
 	int* array_4 = createRandomArray(N);
-
-
-
-
-
 
 	return 0;
 }
