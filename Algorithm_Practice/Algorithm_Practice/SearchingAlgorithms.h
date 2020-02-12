@@ -47,4 +47,20 @@ int binarySearchRecursiveFirstIndex(T* arr, int startIndex, int endIndex, T valu
 	// If the value is not found return -1.
 	return arr[startIndex] == value ? startIndex : -1;
 }
+
+template <typename T>
+int linearSearchIndex(T* arr, int Value, int N) {
+	for (int i = 0; i < N; i++)
+		if (arr[i] == value) return i;
+	return -1;
+}
+
+template <typename T>
+int linearSearchCount(T* arr, int Value, int N) {
+	int count = 0;
+	for (int i = 0; i < N; i++)
+		if (arr[i] == value) count++;
+	return count;
+}
+
 #endif // !SEARCHING_ALGORITHMS_H
