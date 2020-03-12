@@ -1,5 +1,8 @@
 #ifndef GRAPH_H
 #define GRAPH_H
+
+#include <vector>
+
 class Graph
 {
 public:
@@ -12,6 +15,7 @@ public:
 	// return the weight between the given source & dest vertices
 	// weight = 0.0 means no edge
 	double get_edge(int source, int dest) const;
+	vector<int> BFS(int s);
 private:
 	// the graph
 	int num_v; // number of vertices

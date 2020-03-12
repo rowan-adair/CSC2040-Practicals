@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>	// part of C++ STL
+#include <list>
+#include <queue>
 using namespace std;
 
 Graph::Graph(char* fname)
@@ -63,4 +65,23 @@ double Graph::get_edge(int source, int dest) const
 }
 
 
+vector<int> Graph::BFS(int source)
+{
+	queue<int> queue;
 
+	bool* visited = new bool[num_v];
+	
+	vector<int> backtrakc(num_v, -1);
+
+	for (int i = 0; i < num_v; i++) visited[i] = false;
+	
+	queue.push(source);
+	visited[source] = true;
+
+	while (!queue.empty()) {
+		int source = queue.front();
+		queue.pop();
+		// For each destination vertex adjacent to source
+		
+	}
+}
