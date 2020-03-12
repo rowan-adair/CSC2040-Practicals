@@ -16,7 +16,7 @@ private:
 	// the graph
 	int num_v; // number of vertices
 	bool directed; // direction
-	double** edges; // 2-D adjacency matrix holding weighets for edges
+	double **edges; // 2-D adjacency matrix holding weighets for edges
 	// from num_v vertices to num_v vertices
 };
 #endif
