@@ -3,7 +3,6 @@
 #include "ArrayTools.h"
 #include <iostream>
 #include <vector>
-#include <ctime>
 
 using namespace std;
 
@@ -15,13 +14,17 @@ int* createRandomIntArray(int n, int upperbound) {
 	return array;
 }
 
-void testBinarySearch() {
+void testSortingAlgorithms() {
+	clock_t begin, end;
 	// Bubble Sort
 	cout << "Bubble Sort" << endl << endl;
 	int *arr = createRandomIntArray(10,100);
 	cout << "Un-sorted" << endl;
 	printArray(arr, 10);
+	begin = clock();
 	bubbleSort(arr, 10);
+	end = clock();
+	double time_bubble = end - begin;
 	cout << "Bubble Sorted" << endl;
 	printArray(arr, 10);
 	cout << endl;
@@ -31,7 +34,10 @@ void testBinarySearch() {
 	arr = createRandomIntArray(10, 100);
 	cout << "Un-sorted" << endl;
 	printArray(arr, 10);
+	begin = clock();
 	selectionSort(arr, 10);
+	end = clock();
+	double time_selection = end - begin;
 	cout << "Selection Sorted" << endl;
 	printArray(arr, 10);
 	cout << endl;
@@ -41,7 +47,10 @@ void testBinarySearch() {
 	arr = createRandomIntArray(10, 100);
 	cout << "Un-sorted" << endl;
 	printArray(arr, 10);
+	begin = clock();
 	insertionSort(arr, 10);
+	end = clock();
+	double time_insertion = end - begin;
 	cout << "Insertion Sorted" << endl;
 	printArray(arr, 10);
 	cout << endl;
@@ -51,14 +60,23 @@ void testBinarySearch() {
 	arr = createRandomIntArray(10, 100);
 	cout << "Un-sorted" << endl;
 	printArray(arr, 10);
+	begin = clock();
 	quickSort(arr, 0, 9);
+	end = clock();
+	double time_quick = end - begin;
 	cout << "Quick Sorted" << endl;
 	printArray(arr, 10);
 	cout << endl;
+
+	cout << "Bubble Sort : " << time_bubble / 1000 << "/s" << endl;
+	cout << "Selection Sort : " << time_selection / 1000 << "/s" << endl;
+	cout << "Insertion Sort : " << time_insertion / 1000 << "/s" << endl;
+	cout << "Quick Sort : " << time_quick / 1000 << "/s" << endl;
+
 
 }
 
 
 int main() {
-	testBinarySearch();
+	testSortingAlgorithms();
 } 

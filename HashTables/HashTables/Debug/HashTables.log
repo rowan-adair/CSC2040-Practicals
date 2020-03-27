@@ -1,0 +1,7 @@
+﻿  test_HashTable.cpp
+C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\HashTables\HashTables\test_HashTable.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\HashTables\HashTables\HashTable.h(48,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\HashTables\HashTables\HashTable.h(47): message : while compiling class template member function 'HashTable<PhoneDir>::~HashTable(void)'
+C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\HashTables\HashTables\test_HashTable.cpp(16): message : see reference to function template instantiation 'HashTable<PhoneDir>::~HashTable(void)' being compiled
+C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\HashTables\HashTables\test_HashTable.cpp(16): message : see reference to class template instantiation 'HashTable<PhoneDir>' being compiled
+  HashTables.vcxproj -> C:\Users\rjada\OneDrive\Desktop\CSC2040\Practicals\HashTables\Debug\HashTables.exe

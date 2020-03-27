@@ -49,14 +49,14 @@ int binarySearchRecursiveFirstIndex(T* arr, int startIndex, int endIndex, T valu
 }
 
 template <typename T>
-int linearSearchIndex(T* arr, int Value, int N) {
+int linearSearchIndex(T* arr, int value, int N) {
 	for (int i = 0; i < N; i++)
 		if (arr[i] == value) return i;
 	return -1;
 }
 
 template <typename T>
-int linearSearchCount(T* arr, int Value, int N) {
+int linearSearchCount(T* arr, int value, int N) {
 	int count = 0;
 	for (int i = 0; i < N; i++)
 		if (arr[i] == value) count++;
