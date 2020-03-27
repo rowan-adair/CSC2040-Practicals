@@ -107,6 +107,57 @@ int main() {
 
 	delete[] file_name;
 	return 0;
+}
 
+void dijkstra(Graph& graph, int start_vertex, int* backtrack, double* distance) {
+	int number_vertexes = graph.get_num_v();
 
+	set<int> set_vertexes;
+
+	for (int n = 0; n < number_vertexes; n++)
+		if (n != start_vertex) set_vertexes.insert(n);
+
+	distance[start_vertex] = 0.;
+
+	for (set<int>::iterator iteration = set_vertexes.begin(); iteration != set_vertexes.end(); iteration++){
+		int current_vertex = *iteration;
+		
+		double weight = graph.get_edge(start_vertex, current_vertex);
+		
+		distance[current_vertex] = (weight > 0.) ? weight : DBL_MAX;
+		
+		backtrack[current_vertex] = start_vertex;
+	}
+	backtrack[start_vertex] = -1;
+
+	while (!set_vertexes.empty()) {
+		
+		double min_distance = DBL_MAX;
+		int u = -1;
+		
+		for (set<int>::iterator itr = set_vertexes.begin(); itr != set_vertexes.end(); itr++) {
+		
+			int v = *itr;
+			
+			if (distance[v] < min_distance) {
+			
+				min_distance = distance[v];
+				
+				u = v;
+			}
+		}
+		if (u < 0)
+			break;
+
+		set_vertexes.erase(u);
+
+		for (set<int>::iterator itr = set_vertexes.begin(); itr != set_vertexes.end(); itr++) {
+			int v = *itr;
+			if (graph.get_edge(u, v) != 0.0) {
+				// Distance from start_vertex to v via u.
+				double dist = distance[u] + graph.get_edge(u, v);
+				if (dist < distance[v]) distance[v] = dist; backtrack[v] = u;
+			}
+		}
+	}
 }
