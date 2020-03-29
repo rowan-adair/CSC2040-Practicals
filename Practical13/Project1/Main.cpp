@@ -79,7 +79,7 @@ vector<int> bfs(Graph& graph, int start_vertex)
 }
 
 
-int main() {
+int main2() {
 	cout << "Provide graph definition file name: ";
 	char* file_name = new char[FILENAME_LEN];
 	cin >> file_name;
@@ -109,55 +109,106 @@ int main() {
 	return 0;
 }
 
-void dijkstra(Graph& graph, int start_vertex, int* backtrack, double* distance) {
-	int number_vertexes = graph.get_num_v();
-
-	set<int> set_vertexes;
-
-	for (int n = 0; n < number_vertexes; n++)
-		if (n != start_vertex) set_vertexes.insert(n);
-
-	distance[start_vertex] = 0.;
-
-	for (set<int>::iterator iteration = set_vertexes.begin(); iteration != set_vertexes.end(); iteration++){
-		int current_vertex = *iteration;
+void dijkstra(Graph& graph, int start_vertex,int num_vertexes, int* backtrack, double* distances) {
 		
-		double weight = graph.get_edge(start_vertex, current_vertex);
-		
-		distance[current_vertex] = (weight > 0.) ? weight : DBL_MAX;
-		
-		backtrack[current_vertex] = start_vertex;
+	set<int> vertexes;
+
+	for (int i = 0; i < num_vertexes; i++) 
+	{
+		if (i != start_vertex)
+			vertexes.insert(i);
+		distances[i] = DBL_MAX;
 	}
-	backtrack[start_vertex] = -1;
 
-	while (!set_vertexes.empty()) {
+	distances[start_vertex] = 0.0;
+
+	for (set<int>::iterator itr = vertexes.begin(); itr != vertexes.end(); itr++)
+	{
+		int destination_vertex = *itr;
+
+		double weight = graph.get_edge(start_vertex, destination_vertex);
+
+		if (weight > 0.0) distances[destination_vertex] = weight;
 		
+		backtrack[destination_vertex] = start_vertex;
+		
+	}
+	while (!vertexes.empty())
+	{
+		// find the vertex u in vertexes with the smallest distance[u]
+		// Min infinity
 		double min_distance = DBL_MAX;
-		int u = -1;
-		
-		for (set<int>::iterator itr = set_vertexes.begin(); itr != set_vertexes.end(); itr++) {
-		
-			int v = *itr;
-			
-			if (distance[v] < min_distance) {
-			
-				min_distance = distance[v];
-				
-				u = v;
+		int source = -1;
+
+		for (set<int>::iterator itr = vertexes.begin(); itr != vertexes.end(); itr++)
+		{
+			int destination = *itr;
+			// If the destination destance is less than the minimum distance 
+			// Set the minimum distance to be 
+			if (distances[destination] < min_distance) {
+				min_distance = distances[destination];
+				source = destination;
 			}
 		}
-		if (u < 0)
-			break;
 
-		set_vertexes.erase(u);
+		if (source < 0) break;
 
-		for (set<int>::iterator itr = set_vertexes.begin(); itr != set_vertexes.end(); itr++) {
-			int v = *itr;
-			if (graph.get_edge(u, v) != 0.0) {
-				// Distance from start_vertex to v via u.
-				double dist = distance[u] + graph.get_edge(u, v);
-				if (dist < distance[v]) distance[v] = dist; backtrack[v] = u;
+		vertexes.erase(source);
+
+		// All vertexes adjacent to source vertex.
+		for (set<int>::iterator itr = vertexes.begin(); itr != vertexes.end(); itr++)
+		{
+			int destination = *itr;
+			if (graph.get_edge(source, destination) != 0.0)
+			{
+				double distance = distances[source] + graph.get_edge(source, destination);
+				if (distance < distances[destination])
+				{
+					distances[destination] = distance;
+					backtrack[destination] = source;
+				}
 			}
 		}
 	}
+}
+
+int main() {
+	cout << "Provide graph definition file name: ";
+	char* file_name = new char[FILENAME_LEN];
+	cin >> file_name;
+	cout << endl;
+	
+	Graph graph(file_name);
+
+	int num_vertexes = graph.get_num_v();
+	int* backtrack = new int[num_vertexes];
+	
+	double* distances = new double[num_vertexes];
+
+
+	char yesno;
+	do {
+
+		int source;
+		cout << "Specify the source vertex: "; cin >> source;
+
+		dijkstra(graph, source, num_vertexes, backtrack, distances);
+
+		int destination;
+		cout << "Specify destination vertex: "; cin >> destination;
+		if (distances[destination] == DBL_MAX || distances[destination] == -DBL_MAX)
+			cout << "There is no path between source and destinaiton " << endl;
+		else
+			cout << "The shortest path from source to destination is: " << distances[destination] << endl;
+		cout << endl;
+		
+		cout << "Try another pair (y/n)? "; cin >> yesno;
+		cout << endl;
+	} while (yesno == 'y');
+
+	cout << endl;
+	
+	delete[] distances;
+	delete[] backtrack;
+	delete[] file_name;
 }
